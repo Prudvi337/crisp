@@ -1,4 +1,4 @@
-# Swipe AI Interview Assistant
+# Crisp AI Interview Assistant
 
 AI-powered technical interviews for companies. Run comprehensive Full Stack React/Node.js interviews with intelligent scoring and detailed feedback.
 

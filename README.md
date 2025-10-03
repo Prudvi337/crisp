@@ -50,8 +50,8 @@ To maintain interview integrity:
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd chrono-interviewer-pro
+   git clone https://github.com/Prudvi337/crisp.git
+   cd crisp
    ```
 
 2. **Install dependencies**:
@@ -79,7 +79,7 @@ To maintain interview integrity:
    npm run dev
    ```
 
-   This will start both the frontend (port 5173) and backend (port 3001) servers.
+   This will start both the frontend (port 8080) and backend (port 3001) servers.
 
 ## API Endpoints
 

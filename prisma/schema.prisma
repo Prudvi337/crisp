@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Candidate {
+  id           String    @id @default(uuid())
+  name         String?
+  email        String?
+  phone        String?
+  resume       String?
+  status       String    @default("in-progress") // in-progress, completed, paused
+  uploadedAt   DateTime  @default(now())
+  lastActiveAt DateTime  @default(now())
+  finalScore   Int?
+  summary      String?
+  questions    Question[]
+
+  @@map("candidates")
+}
+
+model Question {
+  id            String     @id @default(uuid())
+  candidateId   String
+  candidate     Candidate  @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  prompt        String
+  difficulty    String     // easy, medium, hard
+  answer        String?
+  autoSubmitted Boolean    @default(false)
+  score         Int?
+  feedback      String?
+  startedAt     DateTime?
+  timeLimit     Int
+  timeTaken     Int?
+
+  @@map("questions")
+}
